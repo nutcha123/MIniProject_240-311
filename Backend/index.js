@@ -3,17 +3,7 @@ const app = express();
 //const router = express.Router();
 const cors = require('cors');
 const bcrypt = require('bcrypt');
-const PORT = 80 ;
-
-var MongoClient = require('mongodb').MongoClient;
-// Connect to the db 
-MongoClient.connect("mongodb://@localhost:27017/MiniProject", { useUnifiedTopology: true, useNewUrlParser: true }, function (err, db) {
-    if (!err) {
-        console.log("You are connected!");
-    };
-   // db.close();
-   
-});
+const PORT = 3001 ;
 
 require('./config/Passport')
 const authRouter = require('./route/authRouter')
