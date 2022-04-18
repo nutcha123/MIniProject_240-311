@@ -51,7 +51,7 @@ exports.register = async (req, res, next) => {
             else {
                 let id = (DB.users.length) ? DB.users[DB.users.length - 1].id + 1 : 1
                 const hash = await bcrypt.hash(password, 10)
-                DB.users.push({ id, username, password: hash, email, name, surname, cats: [] })
+                DB.users.push({ id, username, password: hash, email, name, surname})
                 console.log(DB.users)
                 return res.json({ message: "Register success", data: DB.users, register: true })
 
