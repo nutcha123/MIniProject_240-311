@@ -27,7 +27,6 @@ export default function Login({ token }) {
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
-
     return (
         <div className='bg-amber-100 h-screen font-mono'>
             <div className='flex items-end pl-4 bg-amber-700'>
@@ -41,7 +40,7 @@ export default function Login({ token }) {
                     <h1 className='text-2xl text-amber-100 justify-center'>Log in</h1>
                 </div>
                 <span>or use your account</span>
-                <input className='rounded-lg border-2 border-orange-400' onChange={e => setUser({ ...user, username: e.target.value })} type="email" placeholder="Username" />
+                <input className='rounded-lg border-2 border-orange-400' onChange={e => setUser({ ...user, username: e.target.value })} type="email" placeholder="Username"/>
                 <input className='rounded-lg border-2 border-orange-400' onChange={e => setUser({ ...user, password: e.target.value })} type="password" placeholder="Password" />
                 <button onClick={onFinish} className="rounded-full bg-amber-300 w-24">Log In</button>
             </form>

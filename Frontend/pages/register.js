@@ -53,7 +53,7 @@ export default function Register({ token }) {
     return (
         <div className='bg-amber-100 h-screen font-mono'>
             <form className='grid justify-items-center gap-4 place-items-center'>
-                <h1 className='mt-20 text-6xl text-amber-700 italic md:not-italic tracking-wide uppercase'>Chanom Shop</h1>
+                <h1 className='mt-20 text-6xl text-amber-700 tracking-wide uppercase'>Chanom Shop</h1>
                 <div className='bg-amber-700 mt-4 rounded-full w-64 grid justify-items-center'>
                     <h1 className='text-2xl text-amber-100 justify-center'>Register</h1>
                 </div> 
