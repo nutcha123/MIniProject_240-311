@@ -27,6 +27,7 @@ export default function Login({ token }) {
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
+
     return (
         <div className='bg-amber-100 h-screen font-mono'>
             <div className='flex items-end pl-4 bg-amber-700'>

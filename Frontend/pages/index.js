@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { allActions } from '../store/actions'
 import { useEffect } from 'react'
