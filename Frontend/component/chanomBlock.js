@@ -2,6 +2,7 @@ import { Card, Form, Input, Modal, Button } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import config from '../config/config'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { allActions } from '../store/actions'
@@ -13,7 +14,7 @@ const { Meta } = Card;
 const chanomBlock = (props) => {
     const allaction = bindActionCreators(allActions, useDispatch())
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [catUpdate, setCatUpdate] = useState({ ...props.cat })
+    const [chanomatUpdate, setChanomUpdate] = useState({ ...props.chanom})
 
     const showModal = () => {
         setIsModalVisible(true);
@@ -22,7 +23,7 @@ const chanomBlock = (props) => {
     const handleOk = () => {
         setIsModalVisible(false);
         console.log(catUpdate);
-        allaction.updateCat({ ...catUpdate })
+        allaction.updateChanom({ ...chanomUpdate })
     };
 
     const handleCancel = () => {
@@ -30,8 +31,8 @@ const chanomBlock = (props) => {
 
     };
 
-    const buyCat = async () => {
-        allaction.deleteCat(props.cat);
+    const buyChanom = async () => {
+        allaction.deleteChanom(props.chanom);
     }
 
     const validateMessages = {

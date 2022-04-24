@@ -1,6 +1,8 @@
 import withAuth from '../component/withAuth'
+import {useRouter} from 'next/router'
 
 function Home() {
+    const router=useRouter();
     return (
         <div>
             <div className='bg-amber-100 h-screen font-mono'>
@@ -9,6 +11,12 @@ function Home() {
                     <a href='/home' className='ml-4 text-xl text-amber-100 tracking-wide uppercase bg-amber-700'>HOME</a>
                     <a href='/buy' className='ml-4 text-xl text-amber-100 tracking-wide uppercase bg-amber-700'>BUY</a>
                     <a href='/order' className='ml-4 text-xl text-amber-100 tracking-wide uppercase bg-amber-700'>ORDER</a>
+                    <button onClick={()=>{
+                        router.push({
+                            pathname:'login'
+                        })}}
+                        className='border-2 border-orange-100 bg-orange-200'
+                        >Login</button>
                 </div>
             </div>
         </div>

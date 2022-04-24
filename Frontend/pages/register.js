@@ -9,8 +9,6 @@ export default function Register({ token }) {
     const router = useRouter()
 
     const [user, setUser] = useState({
-        name: "",
-        surname: "",
         email: "",
         username: "",
         password: "",
@@ -29,7 +27,7 @@ export default function Register({ token }) {
     };
 
     const onFinish = async () => {
-        const { username, password, confirmpassword, email, name, surname } = { ...user }
+        const { username, password, confirmpassword, email } = { ...user }
         console.log(user.email.includes('@'));
         if (!user.email.includes('@')) {
             return message.error('wrong email')
@@ -37,7 +35,7 @@ export default function Register({ token }) {
         if (password !== confirmpassword) {
             return message.error('Password not match');
         } else {
-            const users = await axios.post(config.URL + "/api/register", { username, password, email, name, surname })
+            const users = await axios.post(config.URL + "/api/register", { username, password, email})
             console.log(users.data);
             if (users.data.register) {
                 message.success(users.data.message)
