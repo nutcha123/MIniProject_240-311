@@ -35,8 +35,8 @@ exports.post = async (req, res) => {
     // await client.close();
     newChanom.id = (chanoms.length) ? chanoms[chanoms.length - 1].id + 1 : 1
     newChanom.name = req.body.name
-    newChanom.dob = req.body.dob
-    newChanom.sex = req.body.sex
+    newChanom.price = req.body.price
+    newChanom.picture = req.body.picture
     chanoms.push(newChanom)
     res.json(chanoms)
 }
@@ -58,8 +58,8 @@ exports.update = async (req, res) => {
     const id = chanoms.findIndex(item => +item.id === +chanomID)
     if (id >= 0) {
         chanoms[id].name = req.body.name;
-        chanoms[id].dob = req.body.dob;
-        chanoms[id].sex = req.body.sex;
+        chanoms[id].price = req.body.price;
+        chanoms[id].picture = req.body.picture;
         res.json(chanoms)
     }
     else {
