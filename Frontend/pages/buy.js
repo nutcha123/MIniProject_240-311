@@ -20,7 +20,7 @@ function Buy() {
         setList(chanoms.data)
     }
     const updateChanom = async (id) => {
-        const chanom = await axios.put(config.URL + "/chanom/update" + `${id}`, { name, price })
+        const chanom = await axios.put(config.URL + "/chanom/update/" + `${id}`, { name, price })
         setList(chanom.data)
 
     }
@@ -28,6 +28,7 @@ function Buy() {
         const chanom = await axios.post(config.URL + "/chanom/add", { name, price })
         setList(chanom.data)
     }
+
     const printChanoms = () => {
         console.log('list', list)
         if (list && list.length) {
@@ -35,7 +36,7 @@ function Buy() {
             (
                 <li key={index} className="mt-2 py-4 px-4 border-2 border-amber-900 rounded-lg flex items-center grid justify-items-center text-xl text-amber-900">
                     <div>{item.picture}</div>
-                    <a className='text-mono'>{item.id}. {item.name}</a>
+                    <a className='text-mono text-2xl'>{item.name}</a>
                     <a className='text-mono'>PRICE : {item.price} Bath</a>
                     <button className='bg-amber-900 text-orange-200 hover:bg-amber-300 hover:text-orange-500 text-base rounded-full px-2' onClick={() => updateChanom(item.id)}>Update</button>
                 </li>
@@ -78,10 +79,10 @@ function Buy() {
                     </div>
                 </div>
                 <div className='py-4 px-4 flex items-center grid justify-items-center text-xl text-amber-900 text-mono mt-2'>
-                    <h1 className='text-2xl'>Add Menu</h1>
-                    <a>Name : <input className='border-2 border-amber-300 rounded-lg bg-orange-200 hover:border-amber-900 mt-2 shadow' type="text" onChange={(e) => setName(e.target.value)} /></a>
-                    <a>Price : <input className='border-2 border-amber-300 rounded-lg bg-orange-200 hover:border-amber-900 mt-2 shadow' type="text" onChange={(e) => setPrice(e.target.value)} /></a>
-                    <button className='bg-amber-900 text-orange-200 hover:bg-amber-300 hover:text-orange-500 text-base rounded-full px-2 mt-2' onClick={() => addChanom()}>Add</button>
+                    <h1 className='text-2xl bg-orange-800 text-orange-200 rounded-xl shadow px-4 py-2'>Add Menu</h1>
+                    <a>Name : <input className='border-2 border-amber-300 rounded-lg bg-orange-200 hover:border-amber-900 mt-2 shadow w-64' type="text" onChange={(e) => setName(e.target.value)} /></a>
+                    <a>Price : <input className='border-2 border-amber-300 rounded-lg bg-orange-200 hover:border-amber-900 mt-2 shadow w-64' type="number" onChange={(e) => setPrice(e.target.value)} /></a>
+                    <button className='bg-orange-800 text-orange-200 hover:bg-amber-300 hover:text-orange-500 text-base rounded-full mt-2 w-16' onClick={() => addChanom()}>Add</button>
                 </div>
                 <div className='mt-2 h-56 grid grid-cols-3 gap-4  justify-items-center'>
                     {printChanoms()}

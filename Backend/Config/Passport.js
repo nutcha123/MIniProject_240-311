@@ -10,12 +10,12 @@ const passportJWT = require("passport-jwt"),
 
 passport.use(
     new LocalStrategy({
-        emailField: 'email',
+        usernameField: 'username',
         passwordField: 'password'
-    }, async (email, password, cb) => {
-        console.log('User: ', email, password)
+    }, async (username, password, cb) => {
+        console.log('User: ', username, password)
         console.log(typeof(DB.users));
-        const user = await DB.users.find(item => item.email == email)
+        const user = await DB.users.find(item => item.username == username)
         if (user) {
             const hash = await bcrypt.compare(password,user.password)
             if (hash){
@@ -42,14 +42,14 @@ passport.use(
             try {
                 // find the user in db if needed
                 console.log('jwt strategy')
-                const user = await DB.users.find(item => item.email == email)
+                const user = await DB.users.find(item => item.username == username)
                 if(user){
                     return cb(null,user);
                 }
                 else{
                     return cb(null,false)
                 }
-                // const index = db.checkExistingUser(jwtPayload.email)
+                // const index = db.checkExistingUser(jwtPayload.username)
                 // if (index !== db.NOT_FOUND) {
                 //     // Strip password out
                 //     const { id, username, email } = users.users[index]

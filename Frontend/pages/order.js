@@ -27,8 +27,9 @@ function Order() {
 
                 <li key={index} className="py-4 px-4 border-2 border-amber-900 rounded-lg flex items-center grid justify-items-center text-xl text-amber-900">
                     <div>{item.picture}</div>
-                    <a className='text-mono'>{item.id}. {item.name}</a>
+                    <a className='text-mono text-2xl'>{item.name}</a>
                     <a className='text-mono'>PRICE : {item.price} Bath</a>
+                    
                     <button className='bg-amber-900 text-orange-200 hover:bg-amber-300 hover:text-orange-500 text-base rounded-full px-2' onClick={() => deleteChanom(item.id)}>Delete</button>
                 </li>
             )
@@ -66,7 +67,7 @@ function Order() {
                         >Register</button>
                     </div>
                 </div>
-                <div className='h-56 grid grid-cols-3 gap-4 justify-items-center'>
+                <div className='h-56 grid grid-cols-3 gap-4 justify-items-center mt-8'>
                     {printChanoms()}
                 </div>
             </div>
