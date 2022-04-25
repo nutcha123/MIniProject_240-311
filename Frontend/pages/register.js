@@ -79,10 +79,10 @@ export default function Register({ token }) {
                 <div className='bg-amber-700 mt-4 rounded-full w-64 grid justify-items-center'>
                     <h1 className='text-2xl text-amber-100 justify-center'>Register</h1>
                 </div>
-                <input className='rounded-lg' onChange={e => setUser({ ...user, email: e.target.value })} type="email" placeholder="E-mail" />
-                <input className='rounded-lg' onChange={e => setUser({ ...user, username: e.target.value })} type="text" placeholder="Username" />
-                <input className='rounded-lg' onChange={e => setUser({ ...user, password: e.target.value })} type="password" placeholder="Password" />
-                <input className='rounded-lg' onChange={e => setUser({ ...user, confirmpassword: e.target.value })} type="password" placeholder="Confrim Password" />
+                <input className='rounded-lg border-2 border-orange-400' onChange={e => setUser({ ...user, email: e.target.value })} type="email" placeholder="E-mail" />
+                <input className='rounded-lg border-2 border-orange-400' onChange={e => setUser({ ...user, username: e.target.value })} type="text" placeholder="Username" />
+                <input className='rounded-lg border-2 border-orange-400' onChange={e => setUser({ ...user, password: e.target.value })} type="password" placeholder="Password" />
+                <input className='rounded-lg border-2 border-orange-400' onChange={e => setUser({ ...user, confirmpassword: e.target.value })} type="password" placeholder="Confrim Password" />
                 <button className="rounded-full bg-amber-300 w-24" onClick={onFinish}>Register</button>
             </form>
 

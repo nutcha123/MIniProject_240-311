@@ -26,4 +26,5 @@ app.use('/api', authRouter)
 app.use('/chanom', chanomRoute)
 
 
+
 app.listen(PORT,()=>console.log('Server is running :',PORT))

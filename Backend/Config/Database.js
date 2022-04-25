@@ -4,8 +4,8 @@ const db = {
         { id: 2, username: 'chanom', password: '$2b$10$y8NTJrZN6IieJ1ToRJASG.hhxxdjPQg4tPSyelfvSI0B2SSIyU05C', email: 'chanom8@gmail.com' },
     ],
     chanoms: [
-        { id: 1, name: 'Chanom', dob: '08-08-19', sex: 'female' },
-        { id: 2, name: 'Lookchup', dob: '08-08-19', sex: 'male' },
+        { id: 1, name: 'Milk Tea', price: '45', sweet: '' },
+        { id: 2, name: 'Thai Tea', price: '50', sweet: '' },
 
     ]
 }

@@ -5,38 +5,17 @@ const { DB } = require('../Config/Database')
 let chanoms = DB.chanoms
 
 exports.get = async (req, res) => {
-    // const client = new MongoClient(uri);
-    // await client.connect();
-    // const x = await client.db('codemobile').collection('courses').find({})
-    //     .toArray()
-    //     .then(items => {
-    //         console.log(`Successfully found ${items.length} documents.`)
-    //         items.forEach(console.log)
-    //         return items
-    //     })
-    //     .catch(err => console.error(`Failed to find documents: ${err}`))
-    // console.log(x);
-    // await client.close();
     console.log(chanoms);
     res.json(chanoms)
 }
 
 exports.post = async (req, res) => {
-    //const client = new MongoClient(uri);
     console.log(req.body);
     const newChanom = {}
-    // await client.connect();
-    // await client.db('codemobile').collection('courses').insertOne({
-    //     //id: req.body.id,
-    //     name: req.body.name,
-    //     dob: req.body.dob,
-    //     sex: req.body.sex
-    // });
-    // await client.close();
     newChanom.id = (chanoms.length) ? chanoms[chanoms.length - 1].id + 1 : 1
     newChanom.name = req.body.name
     newChanom.price = req.body.price
-    newChanom.picture = req.body.picture
+    newChanom.sweet = req.body.sweet
     chanoms.push(newChanom)
     res.json(chanoms)
 }
@@ -59,7 +38,7 @@ exports.update = async (req, res) => {
     if (id >= 0) {
         chanoms[id].name = req.body.name;
         chanoms[id].price = req.body.price;
-        chanoms[id].picture = req.body.picture;
+        chanoms[id].sweet = req.body.sweet;
         res.json(chanoms)
     }
     else {

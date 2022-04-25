@@ -10,12 +10,12 @@ const passportJWT = require("passport-jwt"),
 
 passport.use(
     new LocalStrategy({
-        usernameField: 'username',
+        emailField: 'email',
         passwordField: 'password'
-    }, async (username, password, cb) => {
-        console.log('User: ', username, password)
+    }, async (email, password, cb) => {
+        console.log('User: ', email, password)
         console.log(typeof(DB.users));
-        const user = await DB.users.find(item => item.username == username)
+        const user = await DB.users.find(item => item.email == email)
         if (user) {
             const hash = await bcrypt.compare(password,user.password)
             if (hash){
@@ -31,17 +31,6 @@ passport.use(
             return cb(null,false,
                 { message : 'User not found !!'})
         }
-        // const index = db.checkExistingUser(username)
-        // if (index !== db.NOT_FOUND && await db.isValidUser(username, password)) {
-        //     const { id, username, email } = users.users[index]
-        //     return cb(null,
-        //         { id, username, email },
-        //         { message: 'Logged In Successfully' })
-        // }
-        // else
-        //     return cb(null, false, { message: 'Incorrect user or password.' })
-
-
     }));
 
 passport.use(
@@ -53,14 +42,14 @@ passport.use(
             try {
                 // find the user in db if needed
                 console.log('jwt strategy')
-                const user = await DB.users.find(item => item.username == username)
+                const user = await DB.users.find(item => item.email == email)
                 if(user){
                     return cb(null,user);
                 }
                 else{
                     return cb(null,false)
                 }
-                // const index = db.checkExistingUser(jwtPayload.username)
+                // const index = db.checkExistingUser(jwtPayload.email)
                 // if (index !== db.NOT_FOUND) {
                 //     // Strip password out
                 //     const { id, username, email } = users.users[index]
